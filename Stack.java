@@ -1,76 +1,65 @@
-public class Stack 
+package stack_qu2;
+ /**
+ *
+ * @author teva
+ */
+public class MyStack
 {
+    private Node top;
+    
     private static class Node
     {
-        private final int data;
-        private Node next;
-        
-        private Node(int d)
+        private int d;
+        private Node next;       
+       
+        Node(int data)
         {
-            this.data = d;
+            this.d = data;
             this.next = null;
         }
-        private Node top;
-        
-        public boolean isEmpty()
-        {
-            return top == null;
-        }
-        
-        public int peek()
-        {
-            if(top == null) return -1;
-            else
-                return top.data;
-        }
-        
-        public void push(int d)
-        {
-            Node n = new Node(d);
-            n.next = top;
-            top = n;
-        }
-        
-        public int pop()
-        {
-            if(top == null) return -1;
-            int d = top.data;
-            top = top.next;
-            return d;                
-        }
-        
-        public void print(Node n)
-        {
-            while(n.next != null)
-            {
-                System.out.println(n.data); 
-                n = n.next;
-            }
-        }
+    }
+    public boolean isEmpty()
+    {
+        return top == null;
+    }
+    public void push(int data)
+    {
+        Node newNode = new Node(data);
+        newNode.next = top;
+        top = newNode;       
+    }
+    public int peek()
+    {
+        return top.d;
     }
     
-    public static void main(String[] args) 
+    public int pop()
     {
-        Node s1 = new Node(10);
-        Node s2 = new Node(20);
-        Node s3 = new Node(30);
-        Node s4 = new Node(40);
-        Node s5 = new Node(50);
+        int d = top.d;
+        top = top.next;
+        return d;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        MyStack newStack = new MyStack();
+        newStack.push(10);
+        newStack.push(20);
+        newStack.push(30);
+        newStack.push(40);
+        newStack.push(50);
         
-        s1.next = s2;
-        s2.next = s3;
-        s3.next = s4;
-        s4.next = s5;
+        System.out.print("Peek element " + newStack.peek() + "\n");
         
-        s1.print(s1);
+        System.out.print("Pop element " + newStack.pop() + "\n");
         
-        s1.push(100);
+        System.out.print("Peek element after pop " + newStack.peek() + "\n");
         
-        System.out.println("Peek Value " + s1.peek());
+        newStack.push(100);
         
-        System.out.println("pop Value " + s1.pop());
-        
-        s1.print(s1);      
-                
-    }    
+        System.out.print("Peek element after push " + newStack.peek() + "\n");
+    }
+    
 }
