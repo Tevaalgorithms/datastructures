@@ -116,24 +116,24 @@ public class AdjacencyList
         }
     }
     
-     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        Greaph g = new Greaph(5);
-        g.addEdge(0, 1); 
-        g.addEdge(0, 4); 
-        g.addEdge(1, 2); 
-        g.addEdge(1, 3); 
-        g.addEdge(1, 4); 
-        g.addEdge(2, 3); 
-        g.addEdge(3, 4); 
-        
-        g.print();
-        
-        g.BFS(2);
-        
-    }
-    
+	     /**
+	     * @param args the command line arguments
+	     */
+	    public static void main(String[] args) 
+	    {
+		AdjacencyList g = new AdjacencyList(5);
+		g.addEdge(0, 1); 
+		g.addEdge(0, 4); 
+		g.addEdge(1, 2); 
+		g.addEdge(1, 3); 
+		g.addEdge(1, 4); 
+		g.addEdge(2, 3); 
+		g.addEdge(3, 4); 
+
+		g.print();
+
+		g.BFS(2);
+
+	    }
+
     }
